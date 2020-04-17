@@ -1,16 +1,16 @@
 import {
   utiDate,
 } from 'utility-mar';
-// import 'styles';
-import 'vue-editor-mar/lib/theme-chalk/index.css';
+import 'styles';
+// import 'vue-editor-mar/lib/theme-chalk/index.css';
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import {
   routes,
 } from 'router';
-import VueEditorMar from 'vue-editor-mar';
-// import VueEditorMar from './packages';
+// import VueEditorMar from 'vue-editor-mar';
+import VueEditorMar from './packages';
 
 import store from './store';
 

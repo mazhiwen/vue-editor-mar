@@ -5,7 +5,7 @@
     </div>
     <VueEditorMar
       :content="content"
-      :config="{}"
+      :config="config"
     />
   </div>
 </template>

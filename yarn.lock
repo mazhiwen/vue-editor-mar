@@ -7184,9 +7184,9 @@ utila@^0.4.0, utila@~0.4:
   version "0.4.0"
   resolved "https://registry.npmjs.org/utila/-/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
 
-utility-mar@^1.0.27:
-  version "1.0.27"
-  resolved "https://registry.npmjs.org/utility-mar/-/utility-mar-1.0.27.tgz#65150f9d590cc1e9482142871b9134961cf16368"
+utility-mar@^1.0.29:
+  version "1.0.29"
+  resolved "https://registry.npmjs.org/utility-mar/-/utility-mar-1.0.29.tgz#fa80abcaf01be501b6d0407258ed7476c1e7bdb1"
 
 utils-merge@1.0.1:
   version "1.0.1"

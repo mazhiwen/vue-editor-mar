@@ -171,12 +171,12 @@ DataController.prototype.appendDataToList = function (data) {
     spliceParams: [this.focusUnitIndexInRow, 0, data],
     isAddTxt: true,
   });
-  console.log(this.editUnitListData);
+  // console.log(this.editUnitListData);
 };
 
 // 拖动相关:  插入当前拖动数据字符数据到行
 DataController.prototype.insertCurrentDraggingToList = function (index) {
-  console.log('insertCurrentDraggingToList', index, this.temporaryInsertIndex);
+  // console.log('insertCurrentDraggingToList', index, this.temporaryInsertIndex);
   if (index === this.temporaryInsertIndex) return;
   if (this.temporaryInsertIndex !== null) {
     this.editUnitListData.splice(this.temporaryInsertIndex, 1);
@@ -214,18 +214,18 @@ DataController.prototype.spliceUnitToList = function ({
   const currentUnitData = this.editUnitListData[focusUnitIndexInRow];
   // 研究一下 vue 设置this.data，刷新dom后，执行settimeout 0 的事件
   setTimeout(() => {
-    console.log(focusUnitIndexInRow);
+    // console.log(focusUnitIndexInRow);
     // 研究一下，可能是字体原因，pre字体还没渲染的时候一个字符宽度是9，所以此时拿到的offsetWidth是9, 1000ms后才是7;
     const unitDom = this.rowDomRef.childNodes.item(focusUnitIndexInRow);
-    console.dir(unitDom);
-    console.log(unitDom.offsetLeft);
+    // console.dir(unitDom);
+    // console.log(unitDom.offsetLeft);
     // 计算text文本宽度 计算光标偏移left
     let textWidth = 0;
     currentUnitData.text.split('').forEach((value) => {
       textWidth += this.getCharacterWidth(value);
     });
     this.cursorData.left = unitDom.offsetLeft + textWidth;
-    console.log('spliceUnitToList', this.focusUnitIndexInRow, this.focusChaIndexInUnit, this.editUnitListData);
+    // console.log('spliceUnitToList', this.focusUnitIndexInRow, this.focusChaIndexInUnit, this.editUnitListData);
   }, 0);
 };
 
@@ -258,7 +258,7 @@ DataController.prototype.updateCharacterLengthData = function (spliceParams) {
   // data.text.split('').forEach((value, indexr) => {
   //   console.log(value);
   // });
-  console.log(this.unitInRowLengthList);
+  // console.log(this.unitInRowLengthList);
 };
 
 DataController.prototype.initTemporaryInsertIndex = function () {
@@ -266,7 +266,7 @@ DataController.prototype.initTemporaryInsertIndex = function () {
 };
 
 DataController.prototype.clearCurrentDragData = function () {
-  console.log('执行 clearCurrentDragData', this.editUnitListData);
+  // console.log('执行 clearCurrentDragData', this.editUnitListData);
   // this.initTemporaryInsertIndex();
 
   if (this.editUnitListData[this.temporaryInsertIndex]) {
@@ -277,8 +277,8 @@ DataController.prototype.clearCurrentDragData = function () {
 };
 
 DataController.prototype.cancelDrag = function () {
-  console.log('执行 cancelDrag', this.editUnitListData);
-  console.log(this.temporaryInsertIndex);
+  // console.log('执行 cancelDrag', this.editUnitListData);
+  // console.log(this.temporaryInsertIndex);
   if (this.temporaryInsertIndex === null) return;
   this.editUnitListData.splice(this.temporaryInsertIndex, 1);
   this.clearCurrentDragData();
@@ -414,7 +414,7 @@ DataController.prototype.focusUnitByIndex = function (
   focusUnitIndexInRow,
   focusChaIndexInUnit,
 ) {
-  console.log('focusUnitByIndex', focusRowIndex, focusUnitIndexInRow, focusChaIndexInUnit);
+  // console.log('focusUnitByIndex', focusRowIndex, focusUnitIndexInRow, focusChaIndexInUnit);
   if (focusUnitIndexInRow === -1) {
     this.cursorData.left = this.editLetPadding;
   } else {
@@ -561,7 +561,7 @@ DataController.prototype.onUnitMouseUp = function (
   unitRect,
   e,
 ) {
-  console.log('onUnitMouseUp');
+  // console.log('onUnitMouseUp');
   this.clearStartMouseDownPosition();
   this.focusTextarea();
   // this.initSelectLine();
@@ -651,13 +651,13 @@ DataController.prototype.deleteTxt = function () {
     } else {
       // 移动到上一个unit
       if (arr.length === 1) {
-        console.log('剩余1长度');
+        // console.log('剩余1长度');
         if (rowData.length >= this.focusUnitIndexInRow + 2) {
           const lastUnitData = rowData[this.focusUnitIndexInRow - 1];
           const lastLength = lastUnitData.text.length - 1;
           const newText = `${lastUnitData.text}${rowData[this.focusUnitIndexInRow + 1].text}`;
           const newType = this.getUnitType(newText);
-          console.log(newText, newType);
+          // console.log(newText, newType);
           // 如果当前被删除的剩余1长度的unit text + 上一个text 生成一个有效text
           if (newType) {
             // ...
@@ -746,10 +746,10 @@ DataController.prototype.parseStrToUnitArr = function ({
   let type = this.getUnitType(txtArr[0]);
   let newTxt = null;
   const rowArr = [];
-  console.log('txtArr', txt, txtArr, unitArr);
+  // console.log('txtArr', txt, txtArr, unitArr);
   txtArr.forEach((value, index) => {
     type = this.getUnitType(value);
-    console.log('当前解析', value, value.charCodeAt(0).toString(10));
+    // console.log('当前解析', value, value.charCodeAt(0).toString(10));
     if (type) {
       if (lastUnitData) {
         if (type === 'breakline') {
@@ -994,7 +994,7 @@ DataController.prototype.addTxt = function ({
       }
     }
   }
-  console.log(newTxt, this.getCharacterWidth(newTxt), this.editWrapRect);
+  // console.log(newTxt, this.getCharacterWidth(newTxt), this.editWrapRect);
   this.cursorData.left += this.getCharacterWidth(newTxt);
 
   this.setMentionData(mentionText);
