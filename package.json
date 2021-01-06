@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "lokijs": "^1.5.8",
     "sass-resources-loader": "^2.0.1",
     "utility-mar": "^1.0.29",
